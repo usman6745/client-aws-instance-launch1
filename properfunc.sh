@@ -11,7 +11,7 @@ launch_ec2() {
    local SECURITY_GROUP_ID="$8"
    {
        echo """Your instance details is:-
-       AMI_ID=${AMI_ID}
+       AMI_ID="${AMI_ID}"
        KEYPAIR_NAME="${KEYPAIR}"
        SUBNET_NAME="${SUBNET}"
        REGION_NAME="${REGION}"
