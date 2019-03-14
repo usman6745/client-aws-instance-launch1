@@ -26,6 +26,8 @@ sed -i 's/:/=/g' InstanceId
 echo "aws ec2 create-tags --resources ""$"InstanceId" --tags Key=""$"TAG_KEY",Value=""$"TAG_VALUE" --region $REGION" >> InstanceId
 chmod +x InstanceId
 ./InstanceId
+id=`head -1 InstanceId`
+echo "$id"
 echo " Instance is launched"
 }
 #launch_ec2 $AMI_ID $KEYPAIR $SUBNET $REGION $TAG_KEY $TAG_VALUE $INSTANCE_TYPE $SECURITY_GROUP_ID
