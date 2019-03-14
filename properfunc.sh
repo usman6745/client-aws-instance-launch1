@@ -22,13 +22,13 @@ launch_ec2() {
 #echo "aws ec2 run-instances --image-id "${AMI_ID}" --count 1 --instance-type "${INSTANCE_TYPE}" --key-name "${KEYPAIR}" --security-group-ids "${SECURITY_GROUP_ID}" --subnet-id "${SUBNET}" --region "${REGION}""
 aws ec2 run-instances --image-id ${AMI_ID} --count 1 --instance-type ${INSTANCE_TYPE} --key-name ${KEYPAIR} --security-group-ids ${SECURITY_GROUP_ID} --subnet-id ${SUBNET} --region ${REGION} > ec2.txt
 grep InstanceId ec2.txt | tr -d '", "' > InstanceId
-grep KeyName ec2.txt | tr -d '", "' >> InstanceId
+grep KeyName ec2.txt | tr -d '", "' > InstanceId2
 sed -i 's/:/=/g' InstanceId
 echo "aws ec2 create-tags --resources ""$"InstanceId" --tags Key=""$"TAG_KEY",Value=""$"TAG_VALUE" --region $REGION" >> InstanceId
 chmod +x InstanceId
 ./InstanceId
 id=`head -1 InstanceId`
-id2=`head -2 InstanceId`
+id2=`head -1 InstanceId2`
 #echo "$id"
 echo " Instance is launched"
 }
