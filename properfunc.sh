@@ -27,7 +27,7 @@ echo "aws ec2 create-tags --resources ""$"InstanceId" --tags Key=""$"TAG_KEY",Va
 chmod +x InstanceId
 ./InstanceId
 id=`head -1 InstanceId`
-//echo "$id"
+#echo "$id"
 echo " Instance is launched"
 }
 #launch_ec2 $AMI_ID $KEYPAIR $SUBNET $REGION $TAG_KEY $TAG_VALUE $INSTANCE_TYPE $SECURITY_GROUP_ID
